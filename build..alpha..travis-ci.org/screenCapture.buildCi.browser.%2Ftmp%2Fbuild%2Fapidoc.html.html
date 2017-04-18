@@ -1,0 +1,215 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/imagemin/imagemin-webp#readme">imagemin-webp (v4.0.0)</a>
+</h1>
+<h4>WebP imagemin plugin</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.imagemin-webp">module imagemin-webp</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imagemin-webp.imagemin-webp">
+            function <span class="apidocSignatureSpan"></span>imagemin-webp
+            <span class="apidocSignatureSpan">({}, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imagemin-webp.toString">
+            function <span class="apidocSignatureSpan">imagemin-webp.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.imagemin-webp.toString">module imagemin-webp.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imagemin-webp.toString.toString">
+            function <span class="apidocSignatureSpan">imagemin-webp.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.imagemin-webp" id="apidoc.module.imagemin-webp">module imagemin-webp</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.imagemin-webp.imagemin-webp" id="apidoc.element.imagemin-webp.imagemin-webp">
+        function <span class="apidocSignatureSpan"></span>imagemin-webp
+        <span class="apidocSignatureSpan">({}, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">opts =&gt; buf =&gt; {
+	opts = Object.assign({}, opts);
+
+	if (!Buffer.isBuffer(buf)) {
+		return Promise.reject(new TypeError('Expected a buffer'));
+	}
+
+	if (!isCwebpReadable(buf)) {
+		return Promise.resolve(buf);
+	}
+
+	const args = [
+		'-quiet',
+		'-mt'
+	];
+
+	if (opts.preset) {
+		args.push('-preset', opts.preset);
+	}
+
+	if (opts.quality) {
+		args.push('-q', opts.quality);
+	}
+
+	if (opts.alphaQuality) {
+		args.push('-alpha_q', opts.alphaQuality);
+	}
+
+	if (opts.method) {
+		args.push('-m', opts.method);
+	}
+
+	if (opts.size) {
+		args.push('-size', opts.size);
+	}
+
+	if (opts.sns) {
+		args.push('-sns', opts.sns);
+	}
+
+	if (opts.filter) {
+		args.push('-f', opts.filter);
+	}
+
+	if (opts.autoFilter) {
+		args.push('-af');
+	}
+
+	if (opts.sharpness) {
+		args.push('-sharpness', opts.sharpness);
+	}
+
+	if (opts.lossless) {
+		args.push('-lossless');
+	}
+
+	args.push('-o', execBuffer.output, execBuffer.input);
+
+	return execBuffer({
+		input: buf,
+		bin: cwebp,
+		args
+	}).catch(err =&gt; {
+		err.message = err.stderr || err.message;
+		throw err;
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imagemin-webp.toString" id="apidoc.element.imagemin-webp.toString">
+        function <span class="apidocSignatureSpan">imagemin-webp.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.imagemin-webp.toString" id="apidoc.module.imagemin-webp.toString">module imagemin-webp.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.imagemin-webp.toString.toString" id="apidoc.element.imagemin-webp.toString.toString">
+        function <span class="apidocSignatureSpan">imagemin-webp.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
